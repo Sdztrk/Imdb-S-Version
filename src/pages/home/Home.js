@@ -1,6 +1,5 @@
 
-
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import "./Home.scss"
 import axios from 'axios';
 import Carousel from 'react-bootstrap/Carousel';
