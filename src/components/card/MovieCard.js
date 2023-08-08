@@ -12,7 +12,7 @@ const MovieCard = (movie) => {
     useEffect(()=> {
         setTimeout(()=> {
             setIsLoading(false)
-        }, 1000)
+        }, 1500)
     }, [])
 
 
@@ -22,7 +22,7 @@ const MovieCard = (movie) => {
             isLoading?
             <SkeletonTheme>
                 <p>
-                <Skeleton height={0} duration={5} />
+                <Skeleton />
                 </p>
             </SkeletonTheme>
             :

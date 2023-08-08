@@ -40,7 +40,7 @@ const Home = () => {
   return (
     <>
       <Carousel
-      className='carousel mt-4'
+      className='carousel mt-2'
       slide={true}
       fade={true}
       >
@@ -51,7 +51,7 @@ const Home = () => {
                   className='item' 
                   key={index}>
                     <Link style={{textDecoration:"none", backgroundColor:"white"}} to={`/movie/${movie.id}`}>
-                     <img src={`https://image.tmdb.org/t/p/w500/${movie && movie.backdrop_path}`} alt={movie.original_title}/>
+                     <img className='homeImage d-block w-100' src={`https://image.tmdb.org/t/p/w500/${movie && movie.backdrop_path}`} alt={movie.original_title}/>
                      </Link>
                     <Carousel.Caption>
                       <h3>{movie ? movie.original_title: "" }

@@ -2,14 +2,16 @@ import React from 'react'
 import "./Header.scss"
 import { Link } from 'react-router-dom'
 import Nav from 'react-bootstrap/Nav';
-
+import imdbImage from '../../helper/image/imdb-icon.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 
 const Header = () => {
   return (
-<Nav defaultActiveKey="/home" as="ul" className='nav'>
+<Nav defaultActiveKey="/home" as="ul">
     <Nav.Item as="li">
-      <Link to="/" > <img className='image' src='https://logos-download.com/wp-content/uploads/2016/11/IMDb_logo_logotype-700x354.png' alt='imdb-image' style={{textDecoration:"none"}}/> </Link> 
+      <Link to="/" > <img className='headerImage' src={imdbImage} alt='imdb-image' style={{textDecoration:"none"}}/> </Link> 
     </Nav.Item>
     <Nav.Item as="li">
       <Link to="/movies/popular" className='link ms-5' style={{textDecoration:"none"}}>popular</Link> 
@@ -20,6 +22,7 @@ const Header = () => {
     <Nav.Item as="li">
       <Link to="/movies/upcoming" className='link' style={{textDecoration:"none"}}>upcoming</Link>
     </Nav.Item>
+    <FontAwesomeIcon className='user' icon={faUser} style={{color: "#ffffff",}} />
 </Nav>
    
   )

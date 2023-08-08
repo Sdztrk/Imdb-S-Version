@@ -39,7 +39,7 @@ const MovieList = () => {
           {movieList.map((movie, index) => (
               <Col 
               key={index}
-              className='m-5'
+              className=''
               >
                 <MovieCard  {...movie}/>
               </Col>

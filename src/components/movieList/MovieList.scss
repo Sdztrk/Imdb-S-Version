@@ -1,11 +1,29 @@
-.container{
-    width: 1500px;
+
+$sm-width: 600px;
+@mixin sm {
+    @media (max-width : #{$sm-width}){
+        @content;
+    }
 }
-.col{
-    width: 300px;
-    height: 700px;
-    background-color: greenyellow;
-}
+
+
+
 .movieType{
     color: #ffffff;
+    text-align: center;
+    margin: 50px auto;
+}
+.container{
+    margin-bottom: 30px;
+    .row{
+        .col{
+            margin-bottom:100px;
+            @include sm(){
+                width: 80vw;
+                height: 50vh;
+                margin: 50px ;
+            }
+        }
+    }
+
 }

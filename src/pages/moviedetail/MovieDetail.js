@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react'
 import "./MovieDetail.scss"
 import { useParams } from "react-router-dom"
 import axios from 'axios'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
 
 const MovieDetail = () => {
 
@@ -29,24 +33,28 @@ const MovieDetail = () => {
     }
 
   return (
-    <div className='detailContainer mt-5'>
+    <div className='detailContainer'>
       <img className='detailImageBackDrop' src= {`https://image.tmdb.org/t/p/w500/${currentMovieDetail && currentMovieDetail.backdrop_path}`}/>
       <img className='detailImagePoster' src= {`https://image.tmdb.org/t/p/w500/${currentMovieDetail && currentMovieDetail.poster_path}`}/>
       <div className='detailInfo'>
         <h1> {currentMovieDetail&&currentMovieDetail.original_title} </h1>
         <p> {currentMovieDetail&&currentMovieDetail.tagline} </p>
-        <p> {currentMovieDetail&&currentMovieDetail.runtime} mins </p>
+        <p> <FontAwesomeIcon icon={faStar} style={{color: "#ffffff",}} />    {currentMovieDetail&& (currentMovieDetail.vote_average).toFixed(1)}   {currentMovieDetail&&currentMovieDetail.runtime} mins </p>
         <p> Release Date: {currentMovieDetail&&currentMovieDetail.release_date}</p>
         {currentMovieDetail&&currentMovieDetail.genres.map((genre,index)=> {
           return(
             <span 
             key={index}
-            className='genre mx-1'
+            className='genre'
             >
               {genre.name}
               </span>
           )
         })}
+      </div>
+      <div className='synopsis'>
+        <h1>Synopsis</h1>
+        <p> {currentMovieDetail && currentMovieDetail.overview}</p>
       </div>
     </div>
   )
