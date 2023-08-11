@@ -18,13 +18,6 @@ Welcome to my IMDb Movie App repository! This project is a movie application tha
 - Bootstrap
 - SCSS
 
-## Technologies Used:
-
-React
-React Router
-Axios
-React-Bootstrap
-SCSS
 
 ## Outcome 
 ![Overview](./src/helper/image/overview.png)
