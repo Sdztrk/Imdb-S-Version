@@ -1,17 +1,22 @@
-# IMDB Movie App 
+# IMDb Movie App
 
-## Description
- Created a movie application that allows users to browse and explore movie listings from different categories such as popular, top-rated, and upcoming movies. The app leverages the TMDB API to fetch movie data and display it in an organized and user-friendly manner. Implemented pagination for smooth navigation through the lists.
-(It will continue to be developed)
+Welcome to my IMDb Movie App repository! This project is a movie application that allows users to explore and discover movie listings from various categories, including popular, top-rated, and upcoming movies. The app is built using React and integrates with the TMDB API to fetch and display movie data.
 
 ## Features
-1.Utilized React for building the user interface and managing components.
-2.Integrated react-router-dom for routing between different movie categories and pages.
-3.Implemented dynamic URL parameters to fetch and display relevant movie data based on user selections.
-4.Designed a responsive and intuitive user interface with Bootstrap and custom SCSS styles.
-5.Utilized asynchronous requests with Axios to fetch data from the TMDB API.
-6.Integrated pagination with conditional styling to enable users to navigate through pages of movie listings.
-7.Showcased understanding of state management, component lifecycles, and API interactions.
+
+- Browse and explore movie listings from different categories.
+- Dynamic routing using `react-router-dom` to navigate between categories and pages.
+- Utilization of asynchronous requests with Axios to fetch data from the TMDB API.
+- Responsive user interface design with Bootstrap and custom SCSS styles.
+- Pagination with conditional styling for smooth navigation through movie lists.
+
+## Technologies Used
+
+- React
+- React Router
+- Axios
+- Bootstrap
+- SCSS
 
 ## Technologies Used:
 
