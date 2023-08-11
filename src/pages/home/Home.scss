@@ -1,12 +1,9 @@
-
 $sm-width: 600px;
-
 @mixin sm {
     @media (max-width : #{$sm-width}){
         @content;
     }
 }
-
 
 .carousel{
     width: 80%;

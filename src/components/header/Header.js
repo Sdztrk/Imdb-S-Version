@@ -14,13 +14,13 @@ const Header = () => {
       <Link to="/" > <img className='headerImage' src={imdbImage} alt='imdb-image' style={{textDecoration:"none"}}/> </Link> 
     </Nav.Item>
     <Nav.Item as="li">
-      <Link to="/movies/popular" className='link ms-5' style={{textDecoration:"none"}}>popular</Link> 
+      <Link to="/movies/popular/1" className='link ms-5' style={{textDecoration:"none"}}>popular</Link> 
     </Nav.Item>
     <Nav.Item as="li">
-      <Link to="/movies/top_rated" className='link' style={{textDecoration:"none"}}>top rated</Link>
+      <Link to="/movies/top_rated/1" className='link' style={{textDecoration:"none"}}>top rated</Link>
     </Nav.Item>
     <Nav.Item as="li">
-      <Link to="/movies/upcoming" className='link' style={{textDecoration:"none"}}>upcoming</Link>
+      <Link to="/movies/upcoming/1" className='link' style={{textDecoration:"none"}}>upcoming</Link>
     </Nav.Item>
     <FontAwesomeIcon className='user' icon={faUser} style={{color: "#ffffff",}} />
 </Nav>

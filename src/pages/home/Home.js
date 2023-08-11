@@ -4,7 +4,7 @@ import "./Home.scss"
 import axios from 'axios';
 import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router-dom'
-import MovieList from '../../components/movieList/MovieList';
+import OnlyPopular from '../onlyPopular/OnlyPopular';
 
 
 
@@ -22,7 +22,7 @@ const Home = () => {
         let response = await axios.get(URL)
         const data = response.data.results
         setPopularMovies(data)
-        console.log(data)
+        // console.log(data)
       }
   
       catch(err){
@@ -47,7 +47,7 @@ const Home = () => {
             (
               
                 <Carousel.Item
-                  className='item' 
+                  className='item'
                   key={index}>
                     <Link style={{textDecoration:"none", backgroundColor:"white"}} to={`/movie/${movie.id}`}>
                      <img className='homeImage d-block w-100' src={`https://image.tmdb.org/t/p/w500/${movie && movie.backdrop_path}`} alt={movie.original_title}/>
@@ -62,9 +62,9 @@ const Home = () => {
               )
           )}
       </Carousel>
-      <MovieList/>
+      <OnlyPopular/>
     </>
   )
 }
 
-export default Home
+export default Home;

@@ -61,6 +61,12 @@ $sm-width: 600px;
                 font-size: .5rem;
                 margin: 0 15px;
             }
+            .active{
+                color: blue;
+            }
+            .pending{
+                color: red;
+            }
         }
         .link:hover{
             color: $red;

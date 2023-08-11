@@ -1,24 +1,31 @@
-import { useEffect, useState } from 'react'
-import "./MovieList.scss"
-import { useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import "./MovieList.scss";
+import { useParams } from 'react-router-dom';
 import MovieCard from '../card/MovieCard';
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Pagination from '../pagination/Pagination';
 
 
 const MovieList = () => {
     const [movieList, setMovieList] = useState([])
-    const {type} = useParams()
+    const {type,page} = useParams()
+    const [loading, setLoading] = useState(true)
+
 
     useEffect(() => {
-        getData()
-    },[type])
+
+      getData()
+      setLoading(false)
+    },[type,page])
+
 
     const getData = async () => {
+      const pageNumber = page || 1;
 
-        const URL = `https://api.themoviedb.org/3/movie/${type ? type:"popular"}?api_key=8930ba5665cad5b0e1709b8483aa08ad`
+        const URL = `https://api.themoviedb.org/3/movie/${type ? type:"popular"}?api_key=8930ba5665cad5b0e1709b8483aa08ad&page=${pageNumber}`
   
         try {
           let response = await axios.get(URL)
@@ -29,6 +36,9 @@ const MovieList = () => {
         catch(err){
           console.log(err)
         }
+    }
+    if (loading) {
+      return <div>Loading...</div>;
     }
 
   return (
@@ -42,10 +52,14 @@ const MovieList = () => {
               className=''
               >
                 <MovieCard  {...movie}/>
+                
+                
               </Col>
           ))}
         </Row>
       </Container>
+      <Pagination type={type} currentPage={parseInt(page)}/>
+      
     </>
   )
 }
