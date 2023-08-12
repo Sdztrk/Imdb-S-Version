@@ -46,7 +46,7 @@ $sm-width: 600px;
         top: 50%;
         left: 10%;
         border-radius: .5rem;
-        box-shadow: 0 0 0px 5px rgb(255, 255, 255,1);
+        box-shadow: 0 0 20px 2px black;
         @include xl(){
             width: 175px;
             height: 300px;

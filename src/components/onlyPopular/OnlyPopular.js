@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import "./OnlyPopular.scss";
-import MovieCard from '../../components/card/MovieCard';
+import MovieCard from '../card/MovieCard';
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';

@@ -4,7 +4,7 @@ import "./Home.scss"
 import axios from 'axios';
 import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router-dom'
-import OnlyPopular from '../onlyPopular/OnlyPopular';
+import OnlyPopular from '../../components/onlyPopular/OnlyPopular';
 
 
 
