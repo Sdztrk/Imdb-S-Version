@@ -13,7 +13,8 @@ $sm-width: 600px;
     height: 300px;
     transition: all .3s ease-in-out;
     @include sm(){
-        width: 75vw;
+        width: 60vw;
+        
     }
     &:hover .cardImage{
         transition: all .2s ease-in-out;
@@ -21,5 +22,9 @@ $sm-width: 600px;
     }
     .cardImage{
         transition: all .2s ease-in-out;
+        @include sm(){
+            height: 350px;
+            
+        }
     }
 }
