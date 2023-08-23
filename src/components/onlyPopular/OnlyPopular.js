@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import "./OnlyPopular.scss";
 import MovieCard from '../card/MovieCard';
 import axios from 'axios';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Slider from 'react-slick';
+
 
 
 const OnlyPopular = () => {
@@ -17,7 +17,7 @@ const OnlyPopular = () => {
             try{
                 let response = await axios.get(URL)
                 let movies = response.data.results
-                console.log(movies)
+                // console.log(movies)
                 setMovies(movies)
                 
             }
@@ -29,28 +29,31 @@ const OnlyPopular = () => {
     },[])
 
 
-
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 1000,
+      slidesToShow: 8,
+      slidesToScroll: 5
+    };
 
 
   return (
-    <>
-    <h2 className='onlyPopular'>popular </h2>
-      <Container>
-        <Row>
-          {movies.map((movie, index) => (
-              <Col 
-              key={index}
-              className=''
-              >
+    <div className='onlyPopularCarouselContainer'>
+      <h1 className='onlyPopularH1'>popular</h1>
+      <Slider {...settings}>
 
-                <MovieCard  {...movie}/>
-              </Col>
-          ))}
-        </Row>
-      </Container>
-    </>
-    
+      {movies.map((movie, index) => (
+                  <Col 
+                  className='col'
+                  key={index}
+                  >
+                    <MovieCard  {...movie}/>
+                  </Col>
+              ))}
+      </Slider>
+    </div>
   )
 }
 
-export default OnlyPopular
+export default OnlyPopular;

@@ -36,6 +36,10 @@ $sm-width: 600px;
         height: 80%;
         margin: auto;
         border-radius: 1rem;
+        @include sm(){
+            width: 80%;
+            margin-left: 10%;
+        }
     }
 
     .detailImagePoster{

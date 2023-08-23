@@ -17,7 +17,7 @@ const MovieCard = (movie) => {
 
 
   return (
-    <div>
+    <>
         {
             isLoading?
             <SkeletonTheme>
@@ -37,7 +37,7 @@ const MovieCard = (movie) => {
                 </Link>
            </div>
         }
-    </div>
+    </>
   )
 }
 

@@ -1,0 +1,120 @@
+$xl-width: 1600px;
+$l-width: 1200px;
+$m-width: 960px;
+$sm-width: 600px;
+
+@mixin xl {
+  @media (max-width: #{$xl-width}) {
+    @content;
+  }
+}
+@mixin l {
+    @media (max-width : #{$l-width}){
+        @content;
+    }
+}
+@mixin m {
+    @media (max-width : #{$m-width}){
+        @content;
+    }
+}
+@mixin sm {
+    @media (max-width : #{$sm-width}){
+        @content;
+    }
+}
+
+.search-bar-result {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1000;
+  width: 400px;
+  height: 350px;
+  overflow: auto;
+  @include m(){
+    width: 200px;
+  }
+  @include sm(){
+    width: 80px;
+    height: 150px;
+  }
+  .searchBarResultLink{
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    @include m(){
+      font-size: .8rem;
+    }
+    @include sm(){
+      width: 80px;
+      font-size: .5rem;
+    }
+  }
+
+  .movie-card {
+    display: flex;
+    align-items: center;
+    width: 380px;
+    min-height: 50px;
+    max-height: 50px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid black;
+    @include m(){
+      width: 200px;
+      min-height: 30px;
+      max-height: 30px;
+    }
+    @include sm(){
+      width: 80px;
+      min-height: 15px;
+    max-height: 15px;
+    font-size: .4rem;
+    }
+
+
+
+    &:hover {
+      background-color: #e0e0e0;
+    }
+
+    .movie-image {
+      width: 60px;
+      height: 100%;
+      object-fit: cover;
+      @include m(){
+        width: 45px;
+        object-fit: cover;
+      }
+      @include sm(){
+        width: 30px;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+      .movie-name {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        @include m(){
+          font-size: .8rem;
+          display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        }
+        @include sm(){
+        font-size: .4rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        }
+      }
+  }
+}

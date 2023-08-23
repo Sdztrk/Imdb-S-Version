@@ -1,7 +1,99 @@
-.onlyPopular{
-    text-transform: uppercase;
+
+$xl-width: 1600px;
+$l-width: 1200px;
+$m-width: 960px;
+$sm-width: 600px;
+
+@mixin xl {
+  @media (max-width: #{$xl-width}) {
+    @content;
+  }
+}
+@mixin l {
+    @media (max-width : #{$l-width}){
+        @content;
+    }
+}
+@mixin m {
+    @media (max-width : #{$m-width}){
+        @content;
+    }
+}
+@mixin sm {
+    @media (max-width : #{$sm-width}){
+        @content;
+    }
+}
+
+.onlyPopularCarouselContainer{
+    margin-top: 100px;
+    width: 90vw;
+    height: 500px;
     text-align: center;
-    color: aliceblue;
-    font-size: 3rem;
-    margin: 50px auto;
+    margin-left:  5vw;
+    margin-bottom: 300px;
+    @include m(){
+        opacity: 0;
+        position: absolute;
+        bottom: 1000vh;
+    }
+    .onlyPopularH1{
+        text-align: center;
+        color: white;
+        text-transform: uppercase;
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+    }
+    .slick-list{
+        margin-top: 0px;
+        text-align: center;
+        height: 500px;
+        .slick-slide{
+            .movieCard{
+                @include xl(){
+                    width: 160px;
+                    height: 300px;
+                    font-size: small;
+                }
+                
+                @include l(){
+                    width: 120px;
+                    font-size: 15px;
+                }
+                @include m(){
+                    width: 100px;
+                }
+                @include sm(){
+                    width: 100px;
+                }
+
+                .col{
+                    margin-top: 50px;
+                    @include xl(){
+                        width: 100px;
+                        height: 250px;
+                    }
+                    
+                    @include l(){
+                        width: 100px;
+                    }
+                    @include m(){
+                        width: 100px;
+                    }
+                    @include sm(){
+                        width: 100px;
+                    }
+                    .cardImage{
+                        @include xl(){
+                            width: 150px;
+                            height: 250px;
+                            font-size: 1rem;
+                        }
+                    }
+            }
+        }
+
+        }
+        
+    }
 }

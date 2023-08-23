@@ -45,7 +45,6 @@ const Home = () => {
       >
           {popularMovies.map((movie,index)=> 
             (
-              
                 <Carousel.Item
                   className='item'
                   key={index}>
@@ -59,7 +58,7 @@ const Home = () => {
                       <p>{movie ? movie.overview: "" }</p>
                     </Carousel.Caption>
                   </Carousel.Item>
-              )
+            )
           )}
       </Carousel>
       <OnlyPopular/>

@@ -11,6 +11,12 @@ const MovieDetail = () => {
 
     const [currentMovieDetail, setCurrentMovieDetail]=useState()
     const {id} = useParams()
+    const [isLoading, setIsLoading] = useState(true)
+    useEffect(()=> {
+        setTimeout(()=> {
+            setIsLoading(false)
+        }, 1000)
+    }, [])
 
     useEffect(()=> {
         getData()
@@ -33,6 +39,8 @@ const MovieDetail = () => {
     }
 
   return (
+      isLoading? "" :
+ 
     <div className='detailContainer'>
       <img className='detailImageBackDrop' src= {`https://image.tmdb.org/t/p/w500/${currentMovieDetail && currentMovieDetail.backdrop_path}`}/>
       <img className='detailImagePoster' src= {`https://image.tmdb.org/t/p/w500/${currentMovieDetail && currentMovieDetail.poster_path}`}/>
@@ -57,6 +65,8 @@ const MovieDetail = () => {
         <p> {currentMovieDetail && currentMovieDetail.overview}</p>
       </div>
     </div>
+
+
   )
 
 }
