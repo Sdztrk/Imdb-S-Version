@@ -5,13 +5,12 @@ import axios from 'axios'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-
-
 const MovieDetail = () => {
 
     const [currentMovieDetail, setCurrentMovieDetail]=useState()
     const {id} = useParams()
     const [isLoading, setIsLoading] = useState(true)
+
     useEffect(()=> {
         setTimeout(()=> {
             setIsLoading(false)
@@ -20,19 +19,15 @@ const MovieDetail = () => {
 
     useEffect(()=> {
         getData()
-        window.scrollTo(0,0)
     },[])
 
     const getData = async () => {
-
         const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=8930ba5665cad5b0e1709b8483aa08ad`
-  
         try {
           let response = await axios.get(URL)
           const data = response.data
           setCurrentMovieDetail(data)
         }
-    
         catch(err){
           console.log(err)
         }
@@ -65,10 +60,7 @@ const MovieDetail = () => {
         <p> {currentMovieDetail && currentMovieDetail.overview}</p>
       </div>
     </div>
-
-
   )
-
 }
 
 export default MovieDetail

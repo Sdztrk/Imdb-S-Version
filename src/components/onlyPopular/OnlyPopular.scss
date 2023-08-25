@@ -55,7 +55,6 @@ $sm-width: 600px;
                     height: 300px;
                     font-size: small;
                 }
-                
                 @include l(){
                     width: 120px;
                     font-size: 15px;
@@ -66,14 +65,12 @@ $sm-width: 600px;
                 @include sm(){
                     width: 100px;
                 }
-
                 .col{
                     margin-top: 50px;
                     @include xl(){
                         width: 100px;
                         height: 250px;
                     }
-                    
                     @include l(){
                         width: 100px;
                     }
@@ -92,8 +89,6 @@ $sm-width: 600px;
                     }
             }
         }
-
         }
-        
     }
 }

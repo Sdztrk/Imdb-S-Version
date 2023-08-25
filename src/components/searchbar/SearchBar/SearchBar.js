@@ -12,42 +12,44 @@ const SearchBar = () => {
 
   const clearTheInput = () => {
      setSearchQuery("")
+  }
 
+  async function searchTMDB(query) {
+    const options = {
+      method: 'GET',
+      url: 'https://api.themoviedb.org/3/search/multi',
+      params: {
+        query: query ,
+        include_adult: 'false',
+        language: 'en-US',
+        page: '1',
+      },
+      headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4OTMwYmE1NjY1Y2FkNWIwZTE3MDliODQ4M2FhMDhhZCIsInN1YiI6IjY0YmQ1NTU1YWQ1MGYwMDEzYjEyNjdlNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.uOUtjy6YhYhp4ZFDlsPsG8dwt-l8zSOjntSpT2n4_l4'
+      },
+    };
+
+    try {
+      const response = await axios(options);
+      if (response.status === 200) {
+      setSearchData(response.data.results);
+      }
+      
+
+    } catch (error) {
+      console.error('Error:', error);
+    }
   }
 
 
+
   useEffect(() => {
-    async function searchTMDB(query) {
-      const options = {
-        method: 'GET',
-        url: 'https://api.themoviedb.org/3/search/multi',
-        params: {
-          query: query ,
-          include_adult: 'false',
-          language: 'en-US',
-          page: '1',
-        },
-        headers: {
-          accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4OTMwYmE1NjY1Y2FkNWIwZTE3MDliODQ4M2FhMDhhZCIsInN1YiI6IjY0YmQ1NTU1YWQ1MGYwMDEzYjEyNjdlNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.uOUtjy6YhYhp4ZFDlsPsG8dwt-l8zSOjntSpT2n4_l4'
-        },
-      };
-
-      try {
-        const response = await axios(options);
-        if (response.status === 200) {
-        setSearchData(response.data.results);
-        }
-        
-
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    }
 
     if (searchQuery.trim() !== '') {
       searchTMDB(searchQuery);
     }
+
   }, [searchQuery]);
 
 
@@ -64,7 +66,7 @@ const SearchBar = () => {
         placeholder="Search IMDB"
       />
       {  searchQuery && searchData && searchData.length > 0 
-      ? <SearchBarResult searchQuery={searchQuery} movies={searchData} clearTheInput={clearTheInput} /> 
+      ? <SearchBarResult movies={searchData} clearTheInput={clearTheInput} /> 
       :"" }
       
     </div>
